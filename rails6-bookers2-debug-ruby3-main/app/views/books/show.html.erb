@@ -53,19 +53,13 @@
                     <div><%= book_comment.user.name %></div><span><%= book_comment.created_at.strftime('%Y/%m/%d') %></span>
                   </td>
                   <td class="comment_td">
-
                       <%= book_comment.comment %>
-
                       <div class="destroy_comment_btn">
                         <%= link_to 'Destroy', book_book_comments_path(book_comment.book, book_comment), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm  btn-outline-danger"%>
                       </div>
-
-
                   </td>
-
                 </tr>
                 <% end %>
-
             </table>
           </td>
         </tr>

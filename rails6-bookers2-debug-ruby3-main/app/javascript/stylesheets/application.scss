@@ -1,7 +1,8 @@
 @use "~bootstrap/scss/bootstrap";
-.table_a{
+table{
   width: 100%;
   box-sizing: border-box;
+  table-layout: fixed;
   word-break: break-all;
   word-wrap: break-all;
 }

@@ -1,1 +1,15 @@
-@use "~bootstrap/scss/bootstrap"; 
+@use "~bootstrap/scss/bootstrap";
+.table_a{
+  width: 100%;
+  box-sizing: border-box;
+  word-break: break-all;
+  word-wrap: break-all;
+}
+.comment_td{
+  position: relative;
+}
+.destroy_comment_btn{
+  position: absolute;
+    right: 0;
+    bottom: 0;
+}

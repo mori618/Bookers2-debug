@@ -1,6 +1,5 @@
 class BooksController < ApplicationController
   before_action :is_matching_login_user, only: [:edit, :update]
-  before_action :set_q, only: [:index, :edit, :show, :follows, :followers, :search]
   def show
     @new_book = Book.new
     @book = Book.find(params[:id])

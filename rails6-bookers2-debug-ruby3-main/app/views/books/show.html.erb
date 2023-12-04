@@ -21,47 +21,12 @@
             <td><%= link_to 'Edit', edit_book_path(@book), class: "btn btn-sm btn-success" %></td>
             <td><%= link_to 'Destroy', @book, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
           <% end %>
-          <% if @book.favorited_by?(current_user) %>
-            <td>
-              <%= link_to book_favorites_path(@book), method: :delete do %>
-                ♥<%= @book.favorites.count %> いいね
-                <% end %>
-            </td>
-            <% else %>
-            <td>
-              <%= link_to book_favorites_path(@book), method: :post do %>
-                ♡<%= @book.favorites.count %> いいね
-              <% end %>
-            </td>
-          <% end %>
+          <td id="favorite_button_<%= @book.id %>">
+            <%= render 'favorites/favorite-btn', book: @book %>
+          </td>
         </tr>
-        <tr>
-          <td>
-            <%= form_with model: [@book,@book_comment] do |f| %>
-              <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
-              <%= f.submit "送信する" %>
-            <% end %>
-          </td>
-          <td></td>
-          <td colspan="5">
-            <table class="table_a">
-              <tr>コメント件数：<%= @book.book_comments.count %></tr>
-                <% @book.book_comments.each do |book_comment| %>
-                <tr>
-                  <td>
-                    <div><%= image_tag book_comment.user.get_profile_image, size:'50x50' %></div>
-                    <div><%= book_comment.user.name %></div><span><%= book_comment.created_at.strftime('%Y/%m/%d') %></span>
-                  </td>
-                  <td class="comment_td">
-                      <%= book_comment.comment %>
-                      <div class="destroy_comment_btn">
-                        <%= link_to 'Destroy', book_book_comments_path(book_comment.book, book_comment), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm  btn-outline-danger"%>
-                      </div>
-                  </td>
-                </tr>
-                <% end %>
-            </table>
-          </td>
+        <tr id="comment_<%= @book.id %>">
+          <%= render 'book_comments/book_comment', book: @book ,book_comment: @book_comment %>
         </tr>
       </table>
     </div>

@@ -1,25 +1,19 @@
-<td colspan="5" class="text-right">
-  <%= form_with model: [book,book_comment], local: false do |f| %>
-    <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
-    <%= f.submit "送信する" %>
-  <% end %>
-</td>
-<tr colspan="5">
-  <table class="table_a">
-    <tr>コメント件数：<%= book.book_comments.count %></tr>
-      <% book.book_comments.each do |book_comment| %>
-      <tr>
-        <td>
-          <div><%= image_tag book_comment.user.get_profile_image, size:'50x50' %></div>
-          <div><%= book_comment.user.name %></div><span><%= book_comment.created_at.strftime('%Y/%m/%d') %></span>
+<table>
+  <tr>コメント件数：<%= book.book_comments.count %></tr>
+  <% book.book_comments.each do |book_comment| %>
+  <tr>
+      <td>
+        <div><%= image_tag book_comment.user.get_profile_image, size:'50x50' %></div>
+        <div><%= book_comment.user.name %></div><span><%= book_comment.created_at.strftime('%Y/%m/%d') %></span>
+      </td>
+      <td>
+        <%= book_comment.comment %>
+      </td>
+      <% if book_comment.user == current_user %>
+        <td class="destroy_comment_btn">
+          <%= link_to 'Destroy', book_book_comment_path(book_comment.book, book_comment), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm  btn-outline-danger", remote: true %>
         </td>
-        <td class="comment_td">
-          <%= book_comment.comment %>
-          <div class="destroy_comment_btn">
-            <%= link_to 'Destroy', book_book_comment_path(book_comment.book, book_comment), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm  btn-outline-danger", remote: true %>
-          </div>
-        </td>
-      </tr>
       <% end %>
-  </table>
-</tr>
+    </tr>
+  <% end %>
+</table>

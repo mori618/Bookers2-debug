@@ -25,10 +25,13 @@
             <%= render 'favorites/favorite-btn', book: @book %>
           </td>
         </tr>
-        <tr id="comment_<%= @book.id %>">
-          <%= render 'book_comments/book_comment', book: @book ,book_comment: @book_comment %>
-        </tr>
       </table>
+      <div class="text-right">
+        <%= render "book_comments/form", book: @book, book_comment: @book_comment %>
+      </div>
+      <div id="comment_<%= @book.id %>">
+        <%= render 'book_comments/book_comment', book: @book ,book_comment: @book_comment %>
+      </div>
     </div>
   </div>
 </div>

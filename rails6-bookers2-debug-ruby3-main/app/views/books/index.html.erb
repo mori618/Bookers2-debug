@@ -8,7 +8,15 @@
     </div>
     <div class='col-md-8 offset-md-1'>
       <h2>Books</h2>
+      <div class="text-right mb-1 ">
+        <div class="btn-group me-2" role="group" aria-label="Second group">
+          <%= link_to "新着順", books_path(lasted: "true"), class:"btn btn-secondary" %>
+          <%= link_to "いいね順(総合)", books_path(favo: "true"), class:"btn btn-secondary" %>
+          <%= link_to "いいね順(1週間)", books_path(favo_week: "true"), class:"btn btn-secondary" %>
+        </div>
+      </div>
+
       <%= render 'index', books: @books %>
-    </div>
+
   </div>
 </div>

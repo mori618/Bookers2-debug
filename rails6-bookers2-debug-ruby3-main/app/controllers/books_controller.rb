@@ -8,10 +8,20 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.all
     @book = Book.new
-
+    if params[:lasted]
+      @books = Book.lasted
+    elsif params[:favo]
+      @books = Book.favo
+    elsif params[:favo_week]
+      to = Time.current.at_end_of_day
+      from = (to - 6.day).at_beginning_of_day
+      @books = Book.favo_week(from, to)
+    else
+      @books = Book.all
+    end
   end
+
 
   def create
     @book = Book.new(book_params)

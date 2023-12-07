@@ -3,3 +3,34 @@
     <h1 class="px-3 mx-auto">Welcome to <i class="fas fa-book"></i><strong>Bookers</strong>!</h1>
   </div>
 </div>
+<h1 class="jquery">About</h1>
+<div class="swiper">
+  <div class="swiper-wrapper bg-dark">
+    <div class="swiper-slide bg-dark">
+      <%= link_to root_path,class: 'nav-link text-center text-light' do %>
+        <i class="fas fa-home"></i> Home
+      <% end %>
+    </div>
+    <div class="swiper-slide bg-dark">
+      <%= link_to home_about_path,class: 'nav-link text-center text-light' do %>
+        <i class="fas fa-link"></i> About
+      <% end %>
+    </div>
+    <div class="swiper-slide bg-dark">
+        <%= link_to new_user_registration_path,class: 'nav-link text-center text-light' do %>
+          <i class="fas fa-user-plus"></i> Sign up
+        <% end %>
+    </div>
+    <div class="swiper-slide bg-dark">
+      <%= link_to new_user_session_path ,class: 'nav-link text-center text-light' do %>
+        <i class="fas fa-sign-in-alt"></i> Log in
+      <% end %>
+    </div>
+  </div>
+  <!-- ページネーションの要素 -->
+  <br>
+  <div class="swiper-pagination"></div>
+  <!-- ナビゲーションボタン （前、次） -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div>

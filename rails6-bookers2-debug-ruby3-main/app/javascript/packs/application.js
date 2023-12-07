@@ -12,7 +12,9 @@ import "channels"
 import "jquery"
 import "popper.js"
 import "bootstrap"
-
+import "script.js"
+import Swiper from 'swiper/swiper-bundle.js';
+import 'swiper/swiper-bundle.css';
 import "../stylesheets/application"
 
 Rails.start()

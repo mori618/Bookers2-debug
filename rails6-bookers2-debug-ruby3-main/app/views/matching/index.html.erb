@@ -1,0 +1,9 @@
+
+<p>マッチング中のお相手 <%= @matching_users.size %>人</p>
+<% @mathing_users.each do |matching_user| %>
+    <ul>
+        <li>
+            <%= link_to matching_user.username,"#" %>
+        </li>
+    </ul>
+<% end %>
